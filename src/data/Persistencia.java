@@ -9,9 +9,9 @@ public class Persistencia {
     private static ArrayList<Mamifero> animales = new ArrayList<>();
     private static ArrayList<Sector> sectores = new ArrayList<>();
     private static ArrayList<Especie> especies = new ArrayList<>();
+    private static ArrayList<Pais> paises = new ArrayList<>();
     private static ArrayList<Empleado> empleados = new ArrayList<>();
 
-   
     public static ArrayList<Mamifero> getAnimales() {
         return animales;
     }
