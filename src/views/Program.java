@@ -11,5 +11,6 @@ public class Program {
     public static void main(String[] args) throws IllegalArgumentException, InvalidPropertiesFormatException {
         MenuPrincipalView view = new MenuPrincipalView();
         view.setVisible(true);
+        view.setLocationRelativeTo(null);
     }
 }

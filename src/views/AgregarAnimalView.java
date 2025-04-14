@@ -1,6 +1,9 @@
 
 package views;
 
+import java.util.InvalidPropertiesFormatException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 
@@ -43,12 +46,12 @@ public class AgregarAnimalView extends javax.swing.JFrame {
         this.tfEspecie = tfEspecie;
     }
 
-    public JTextField getTfLalitud() {
-        return tfLalitud;
+    public JTextField getTfLatitud() {
+        return tfLatitud;
     }
 
-    public void setTfLalitud(JTextField tfLalitud) {
-        this.tfLalitud = tfLalitud;
+    public void setTfLatitud(JTextField tfLatitud) {
+        this.tfLatitud = tfLatitud;
     }
 
     public JTextField getTfLimite() {
@@ -143,7 +146,7 @@ public class AgregarAnimalView extends javax.swing.JFrame {
         tfPorcentajeAlimentacion = new javax.swing.JTextField();
         tfAlimentacionExtra = new javax.swing.JTextField();
         tfSector = new javax.swing.JTextField();
-        tfLalitud = new javax.swing.JTextField();
+        tfLatitud = new javax.swing.JTextField();
         tfLongitud = new javax.swing.JTextField();
         tfLimite = new javax.swing.JTextField();
         tfPais = new javax.swing.JTextField();
@@ -183,13 +186,27 @@ public class AgregarAnimalView extends javax.swing.JFrame {
 
         jLabel14.setText("Tipo de alimentacion:");
 
-        cbTipoDeAlimentacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegir..." }));
+        cbTipoDeAlimentacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elegir...", "CARNIVORO", "HERBIVORO" }));
+
+        tfPorcentajeAlimentacion.setText("0");
+
+        tfAlimentacionExtra.setText("0");
 
         jButton1.setText("Volver atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cargar Animal");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        cbEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Eligir..." }));
+        cbEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Eligir...", "Raul", "Maria" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -197,9 +214,6 @@ public class AgregarAnimalView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jLabel13))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,9 +249,9 @@ public class AgregarAnimalView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfSector, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfLalitud, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)
+                        .addGap(4, 4, 4)
+                        .addComponent(tfLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,18 +274,22 @@ public class AgregarAnimalView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
+                        .addGap(226, 226, 226)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
+                        .addGap(46, 46, 46)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(293, 293, 293))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel13)
-                .addGap(44, 44, 44)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,7 +310,7 @@ public class AgregarAnimalView extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(tfSector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(tfLalitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(tfLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
@@ -305,11 +323,11 @@ public class AgregarAnimalView extends javax.swing.JFrame {
                     .addComponent(tfPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(64, 64, 64))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -325,6 +343,20 @@ public class AgregarAnimalView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+        MenuPrincipalView view = new MenuPrincipalView();
+        view.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            Controlador.AgregarAnimal(this);
+        } catch (InvalidPropertiesFormatException ex) {
+            Logger.getLogger(AgregarAnimalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -351,7 +383,7 @@ public class AgregarAnimalView extends javax.swing.JFrame {
     private javax.swing.JTextField tfCodigo;
     private javax.swing.JTextField tfEdad;
     private javax.swing.JTextField tfEspecie;
-    private javax.swing.JTextField tfLalitud;
+    private javax.swing.JTextField tfLatitud;
     private javax.swing.JTextField tfLimite;
     private javax.swing.JTextField tfLongitud;
     private javax.swing.JTextField tfPais;

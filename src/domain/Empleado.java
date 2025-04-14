@@ -11,6 +11,9 @@ public class Empleado {
         this.domicilio = domicilio;
     }
 
+    public Empleado() {
+    }
+
     public String getNombre() {
         return nombre;
     }
