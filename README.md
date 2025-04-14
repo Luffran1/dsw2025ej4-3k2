@@ -3,6 +3,6 @@
 ### - ARAMAYO, LUCIANO ELÍAS
 58181 + EliasAramayo + aramayoelias2@gmail.com
 ### - BIZONE, JUAN IGNACIO
-57886 + Juan Ignacio Bizone + juanignaciobizone@gmail.com
+57886 + bayzon + juanignaciobizone@gmail.com
 ### - BUSTO, FRANCO GABRIEL
 58284 + Luffran1 + Franco.Busto@alu.frt.utn.edu.ar
